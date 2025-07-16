@@ -17,23 +17,40 @@ class CarModel {
 
   factory CarModel.fromJson(Map<String, dynamic> json) {
     return CarModel(
-      id: json['id'],
-      brandModel: json['brandModel'],
-      color: json['color'],
-      licensePlate: json['licensePlate'],
-      driverName: json['driverName'],
-      isAvailable: json['isAvailable'],
+      id: json['id'] ?? '',
+      brandModel: json['brandModel'] ?? '',
+      color: json['color'] ?? 'gray',
+      licensePlate: json['licensePlate'] ?? '',
+      driverName: json['driverName'] ?? '',
+      isAvailable: json['isAvailable'] ?? false,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'brandModel': brandModel,
       'color': color,
       'licensePlate': licensePlate,
       'driverName': driverName,
       'isAvailable': isAvailable,
     };
+  }
+
+  CarModel copyWith({
+    String? id,
+    String? brandModel,
+    String? color,
+    String? licensePlate,
+    String? driverName,
+    bool? isAvailable,
+  }) {
+    return CarModel(
+      id: id ?? this.id,
+      brandModel: brandModel ?? this.brandModel,
+      color: color ?? this.color,
+      licensePlate: licensePlate ?? this.licensePlate,
+      driverName: driverName ?? this.driverName,
+      isAvailable: isAvailable ?? this.isAvailable,
+    );
   }
 }

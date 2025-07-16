@@ -39,4 +39,50 @@ class FirebaseService {
       throw Exception('Ошибка при добавлении машины');
     }
   }
+
+  static Future<void> updateCarStatus(String carId, bool newStatus) async {
+    final url = Uri.parse('$baseUrl/cars/$carId.json');
+    final response = await http.patch(
+      url,
+      body: json.encode({'isAvailable': newStatus}),
+    );
+    if (response.statusCode != 200) {
+      throw Exception('Ошибка при обновлении статуса машины');
+    }
+  }
+
+  static Future<CarModel> getCarById(String carId) async {
+    final url = Uri.parse('$baseUrl/cars/$carId.json');
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      if (data == null) {
+        throw Exception('Машина не найдена');
+      }
+      return CarModel.fromJson({'id': carId, ...data});
+    } else {
+      throw Exception('Ошибка при загрузке автомобиля');
+    }
+  }
+
+  static Future<void> deleteCar(String carId) async {
+    final url = Uri.parse('$baseUrl/cars/$carId.json');
+    final response = await http.delete(url);
+
+    if (response.statusCode != 200) {
+      throw Exception('Ошибка при удалении автомобиля');
+    }
+  }
+
+  static Future<void> updateCar(
+    String carId,
+    Map<String, dynamic> updatedData,
+  ) async {
+    final url = Uri.parse('$baseUrl/cars/$carId.json');
+    final response = await http.patch(url, body: json.encode(updatedData));
+
+    if (response.statusCode != 200) {
+      throw Exception('Ошибка при обновлении машины');
+    }
+  }
 }
