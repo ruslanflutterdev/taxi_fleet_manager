@@ -1,28 +1,12 @@
 import 'package:flutter/material.dart';
 import '../models/car_model.dart';
+import '../utils/colors_utils.dart';
 
 class CarCard extends StatelessWidget {
   final CarModel car;
 
   const CarCard({super.key, required this.car});
 
-  Color getColorFromName(String color) {
-    switch (color.toLowerCase()) {
-      case 'red':
-        return Colors.red;
-      case 'blue':
-        return Colors.blue;
-      case 'green':
-        return Colors.green;
-      case 'yellow':
-        return Colors.yellow;
-      case 'gray':
-      case 'grey':
-        return Colors.grey;
-      default:
-        return Colors.black;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
