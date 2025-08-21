@@ -1,16 +1,43 @@
-# taxi_fleet_manager
+🚗 Car Manager App
 
-A new Flutter project.
+Мобильное приложение на Flutter для управления информацией об автомобилях.
+Поддерживает добавление, редактирование и просмотр автомобилей с интеграцией Firebase.
 
-## Getting Started
+📌 Возможности приложения
 
-This project is a starting point for a Flutter application.
+📋 Просмотр списка автомобилей на главном экране.
 
-A few resources to get you started if this is your first Flutter project:
+➕ Добавление нового автомобиля.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+✏️ Редактирование информации о существующем автомобиле.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🔍 Просмотр детальной информации об автомобиле.
+
+🎨 Выбор цвета автомобиля через встроенный Color Picker.
+
+☁️ Сохранение и загрузка данных через Firebase.
+
+
+🛠️ Технологии
+
+Flutter — UI-фреймворк.
+
+Provider — управление состоянием.
+
+Firebase — хранилище данных.
+
+▶️ Как запустить проект
+
+Установи Flutter: инструкция
+.
+
+Склонируй проект или распакуй архив.
+
+Установи зависимости:
+
+flutter pub get
+
+
+Запусти приложение:
+
+flutter run
